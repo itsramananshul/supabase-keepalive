@@ -17,21 +17,21 @@
   {
     "name": "auriva",
     "url": "https://rmwadovwrxodjtsjrwhq.supabase.co",
-    "key": "TODO_PASTE_AURIVA_ANON_KEY"
-  },
-  {
-    "name": "voxvitals",
-    "url": "TODO_PASTE_VOXVITALS_URL",
-    "key": "TODO_PASTE_VOXVITALS_ANON_KEY"
+    "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtd2Fkb3Z3cnhvZGp0c2pyd2hxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyMTYyNDEsImV4cCI6MjA5MTc5MjI0MX0.CWAvQo6bH5ywu0qUSfaiKMu5nM2T5o4dvWQ4dbbUOq4"
   },
   {
     "name": "credix",
-    "url": "TODO_PASTE_CREDIX_URL",
-    "key": "TODO_PASTE_CREDIX_ANON_KEY"
+    "url": "https://eoqdwpociznglpteraer.supabase.co",
+    "key": "sb_publishable_AQNzHYlJFRYnwFOyWEYj2A_smOZp9St"
+  },
+  {
+    "name": "voxvitals",
+    "url": "https://zuxztkrjlpdfcexqqkfb.supabase.co",
+    "key": "sb_publishable_5bVBKndOm4yDNAeUB7MSNA_E4-brwXR"
   },
   {
     "name": "loop-in",
-    "url": "TODO_PASTE_LOOPIN_URL",
-    "key": "TODO_PASTE_LOOPIN_ANON_KEY"
+    "url": "https://kxdnzzdcyouosnzrxzjt.supabase.co",
+    "key": "sb_publishable_NDgxEeVKmL4vCky06xTPNQ_IVikAiAE"
   }
 ]

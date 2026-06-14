@@ -56,18 +56,35 @@ if (!projects.length) {
   process.exit(1);
 }
 
-const stamp = new Date().toISOString();
-console.log(`[${stamp}] keep-alive: pinging ${projects.length} project(s)`);
-
-let failed = 0;
-for (const p of projects) {
-  const r = await keepAlive(p); // sequential — avoids Windows libuv teardown crash
-  const ok = r.status > 0;
-  if (!ok) failed++;
-  console.log(
-    `  ${ok ? 'OK ' : 'FAIL'} ${String(r.name || r.url).padEnd(16)} ${String(r.status).padEnd(4)} ${r.method}${r.error ? '  ' + r.error : ''}`,
-  );
+async function runOnce() {
+  const stamp = new Date().toISOString();
+  console.log(`[${stamp}] keep-alive: pinging ${projects.length} project(s)`);
+  let failed = 0;
+  for (const p of projects) {
+    const r = await keepAlive(p); // sequential — avoids Windows libuv teardown crash
+    const ok = r.status > 0;
+    if (!ok) failed++;
+    console.log(
+      `  ${ok ? 'OK ' : 'FAIL'} ${String(r.name || r.url).padEnd(16)} ${String(r.status).padEnd(4)} ${r.method}${r.error ? '  ' + r.error : ''}`,
+    );
+  }
+  console.log(`[${stamp}] done — ${projects.length - failed} ok, ${failed} failed`);
+  return failed;
 }
 
-console.log(`[${stamp}] done — ${projects.length - failed} ok, ${failed} failed`);
-process.exit(failed ? 1 : 0);
+// Loop mode (for Coolify / any always-on container): ping, then sleep and
+// repeat forever. Enable with --loop or KEEPALIVE_LOOP=1. Interval defaults to
+// 72h; override with KEEPALIVE_INTERVAL_HOURS.
+const LOOP = process.argv.includes('--loop') || /^(1|true|yes)$/i.test(process.env.KEEPALIVE_LOOP || '');
+if (LOOP) {
+  const hours = Number(process.env.KEEPALIVE_INTERVAL_HOURS) || 72;
+  const ms = Math.max(1, hours) * 3600 * 1000;
+  console.log(`keep-alive daemon: every ${hours}h`);
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    try { await runOnce(); } catch (e) { console.error('run error:', e); }
+    await new Promise((r) => setTimeout(r, ms));
+  }
+} else {
+  process.exit((await runOnce()) ? 1 : 0);
+}

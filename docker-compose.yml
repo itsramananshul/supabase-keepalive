@@ -1,0 +1,7 @@
+services:
+  keepalive:
+    build: .
+    restart: unless-stopped
+    environment:
+      KEEPALIVE_LOOP: "1"
+      KEEPALIVE_INTERVAL_HOURS: "72"   # ping every 3 days

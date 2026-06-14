@@ -1,0 +1,37 @@
+[
+  {
+    "name": "master-brain",
+    "url": "https://ubvoipfncbkhqipwhmos.supabase.co",
+    "key": "sb_publishable_PqMVAJnYAcYCKyGKnq1osA_Z9koeIeL"
+  },
+  {
+    "name": "reachout",
+    "url": "https://rwxsxoavfktsinmgexfo.supabase.co",
+    "key": "sb_publishable_ogA2iSpJpZFtYt7h__dazQ_HDSWRaMT"
+  },
+  {
+    "name": "habitfuel",
+    "url": "https://nqenenylhkvfyqjbqgzr.supabase.co",
+    "key": "sb_publishable_wBAKOI30U21g-R35NRy-2w_8kItJ5G9"
+  },
+  {
+    "name": "auriva",
+    "url": "https://rmwadovwrxodjtsjrwhq.supabase.co",
+    "key": "TODO_PASTE_AURIVA_ANON_KEY"
+  },
+  {
+    "name": "voxvitals",
+    "url": "TODO_PASTE_VOXVITALS_URL",
+    "key": "TODO_PASTE_VOXVITALS_ANON_KEY"
+  },
+  {
+    "name": "credix",
+    "url": "TODO_PASTE_CREDIX_URL",
+    "key": "TODO_PASTE_CREDIX_ANON_KEY"
+  },
+  {
+    "name": "loop-in",
+    "url": "TODO_PASTE_LOOPIN_URL",
+    "key": "TODO_PASTE_LOOPIN_ANON_KEY"
+  }
+]

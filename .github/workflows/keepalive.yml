@@ -1,0 +1,18 @@
+name: supabase-keepalive
+
+# Pings every Supabase project so free-tier ones don't auto-pause.
+# Runs every ~3 days. A run takes a few seconds — negligible Actions minutes.
+on:
+  schedule:
+    - cron: '0 9 */3 * *' # 09:00 UTC, every 3rd day of the month
+  workflow_dispatch: {} # lets you run it manually from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node keepalive.mjs
